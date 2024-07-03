@@ -1,26 +1,26 @@
-name: TruffleHog Scan
-
+name: "TruffleHog"
 on:
   push:
     branches:
+      - master
       - main
-
+      - develop
+  pull_request:
+    branches:
+      - master
+      - main
+      - develop
 jobs:
-  trufflehog-scan:
-    runs-on: ubuntu-latest
-
+  scan:
+    runs-on: security
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Install TruffleHog
-      run: pip install trufflehog
-
-    - name: Run TruffleHog
-      run: trufflehog --regex . > trufflehog_results.json
-
-    - name: Upload TruffleHog Results
-      uses: actions/upload-artifact@v2
+      uses: actions/checkout@v3
       with:
-        name: trufflehog-results
-        path: trufflehog_results.json
+        fetch-depth: 0
+    - name: Secret Scanning
+      uses: trufflesecurity/trufflehog@main
+      with:
+        base: ""
+        head: ${{github.ref_name}}
+        extra_args: --only-verified
