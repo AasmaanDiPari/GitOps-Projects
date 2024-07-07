@@ -13,4 +13,5 @@
         name: ansible-automation-platform-operator
         namespace: aap
       spec:
-        targetNamespaces: aap
+        targetNamespaces:
+         - aap
