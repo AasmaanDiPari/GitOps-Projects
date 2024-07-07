@@ -1,0 +1,23 @@
+---
+- name: Install AAP on OCP playbook
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    aap_ocp_install_connection:
+      host: "https://api.crc.testing:6443"
+      username: kubeadmin
+      password: <PASSWORD>
+      validate_certs: false
+    aap_ocp_install_namespace: aap-test
+    aap_ocp_install_operator:
+      channel: "stable-2.2"
+    aap_ocp_install_controller:
+      instance_name: automationcontroller
+    aap_ocp_install_hub:
+      instance_name: automationhub
+    aap_ocp_install_eda:
+      instance_name: edacontroller
+
+  roles:
+    - infra.aap_utilities.aap_ocp_install
