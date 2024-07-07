@@ -1,0 +1,22 @@
+- name: Deploy AAP controller instance
+  kubernetes.core.k8s:
+    state: present
+    definition:
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: aap-controller
+        namespace: aap
+      spec:
+        replicas: 1
+        selector:
+          matchLabels:
+            app: aap-controller
+        template:
+          metadata:
+            labels:
+              app: aap-controller
+          spec:
+            containers:
+              - name: aap-controller
+                image: 
