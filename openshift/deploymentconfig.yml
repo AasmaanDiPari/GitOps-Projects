@@ -1,0 +1,18 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: ansible-automation-platform
+  namespace: ansible-automation-platform
+spec:
+  replicas: 1
+  selector:
+    app: ansible-automation-platform
+  template:
+    metadata:
+      labels:
+        app: ansible-automation-platform
+    spec:
+      containers:
+        - name: ansible-automation-platform
+          image: your-aac-image:tag
+          # Add other configuration for your AAP container
