@@ -1,0 +1,11 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: ansible-automation-platform
+  namespace: ansible-automation-platform
+spec:
+  to:
+    kind: Service
+    name: ansible-automation-platform
+  port:
+    targetPort: 8080  # Port your AAP application is listening on inside the Pods
