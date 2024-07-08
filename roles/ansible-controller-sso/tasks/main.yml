@@ -9,6 +9,8 @@ spec:
     sso:
       type: saml
       saml:
-        metadataUrl: "https://your-idp.example.com/saml/metadata"
-        entityIssuer: "https://aac.example.com"
-        ssoUrl: "https://your-idp.example.com/saml/sso"
+        metadataUrl: "https://login.microsoftonline.com/{tenant_id}/federationmetadata/2007-06/federationmetadata.xml"
+        entityIssuer: "https://sts.windows.net/{tenant_id}/"
+        ssoUrl: "https://login.microsoftonline.com/{tenant_id}/saml2"
+      clientId: "<your_client_id>"
+      clientSecret: "<your_client_secret>"
