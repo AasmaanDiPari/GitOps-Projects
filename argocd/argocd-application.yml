@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ansible-automation-platform
+  namespace: argocd  # Namespace where ArgoCD is installed
+spec:
+  destination:
+    server: https://kubernetes.default.svc  # Kubernetes API server address
+    namespace: ansible-automation-platform
+  project: default  # ArgoCD project name
+  source:
+    repoURL: https://github.com/your-org/your-aac-repo.git  # Repository containing your AAC manifests
+    path: openshift  # Path within the repository containing OpenShift manifests
+    targetRevision: HEAD  # Git branch, tag, or commit SHA
+  syncPolicy:
+    automated:
+      prune: true  # Optionally enable pruning of resources not managed by Git
