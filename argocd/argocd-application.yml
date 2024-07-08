@@ -9,7 +9,7 @@ spec:
     namespace: ansible-automation-platform  # Namespace where AAP will be deployed
   project: default  # ArgoCD project name
   source:
-    repoURL: https://github.com/your-org/your-aap-repo.git  # Repository containing your AAP manifests
+    repoURL: https://github.com/AsmaanDiPari/GitOps-Projects.git  # Repository containing your AAP manifests
     path: openshift  # Path within the repository containing OpenShift manifests
     targetRevision: main  # Git branch, tag, or commit SHA
   syncPolicy:
