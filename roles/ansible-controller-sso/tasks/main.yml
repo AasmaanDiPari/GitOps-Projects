@@ -1,0 +1,14 @@
+apiVersion: automationcontroller.ansible.com/v1beta1
+kind: AutomationController
+metadata:
+  name: aap.astros.com
+  namespace: ansible-automation-platform
+spec:
+  replicas: 1
+  authentication:
+    sso:
+      type: saml
+      saml:
+        metadataUrl: "https://your-idp.example.com/saml/metadata"
+        entityIssuer: "https://aac.example.com"
+        ssoUrl: "https://your-idp.example.com/saml/sso"
